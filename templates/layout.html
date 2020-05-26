@@ -3,16 +3,31 @@
     <head>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
+        <link rel="stylesheet" type="text/css" href="../static/general.css">
+
         <title>LearnPC: {% block title %}{% endblock %}</title>
 
         <meta name="description" content="This is a website built to educate kids on PCs!">
 
         <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+
+        {% block links %}{% endblock %}
+
     </head>
 
     <body>
     <!-- Nav -->
+        <nav class="navbar navbar-expand-lg pt-4 pb-4">
+            <div class="container-fluid nav-left">
+                <ul class="navbar-nav nav-left">
+                    <li class="navbar-brand nav-item">LearnPC</li>
+                </ul>
+                <ul class="navbar-nav nav-right">
+                    {% block navItems %}{% endblock %}
+                </ul>
+            </div>
+        </nav>
 
         <main>
             {% block main %}{% endblock %}
