@@ -1,0 +1,13 @@
+#titleDiv{
+    margin-top:25%;
+}
+
+#mainTitle{
+    font-size: 45px;
+    font-weight:700px;
+}
+
+.main-btn{
+    font-size:20px;
+    border-radius: 25%;
+}

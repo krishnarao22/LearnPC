@@ -4,22 +4,34 @@
     Home
 {% endblock %}
 
+{% block links %}
+    <link rel="stylesheet" type="text/css" href="../static/home.css">
+{% endblock %}
+
 {% block main %}
 
 <div class="container-fluid">
 
     <div class="container-fluid row white">
 
-        <div class="col d-flex justify-content-center pt-5 pb-5">
-            <div class="d-flex">
-                <h1>Learn about your PC - quick and easy!</h1>
+        <div class="col d-flex flex-column pt-5 pb-5">
+            <div class="justify-content-center align-self-center" id="titleDiv">
+                <h1 id="mainTitle">Learn about your PC - quick and easy!</h1>
+            </div>
+            <div class="d-flex flex-row justify-content-center pt-5">
+                <button type="button" id="signUpBtn" class="btn btn-primary mr-4 main-btn p-4">Sign Up!</button>
+                <button type="button" class="btn btn-primary ml-4 main-btn p-4">Log In!</button>
             </div>
         </div>
         
-        <div class="col d-flex pt-5 pb-5 red">
-            Image here!
+        <div class="col d-flex pt-5 pb-5 red justify-content-center">
+            <img src="../static/mainPC.png">
         </div>
 
+    </div>
+
+    <div class="container-fluid background-blue d-flex justify-content-center pt-5 pb-5">
+        <h1>Fill this out later</h1>
     </div>
 
 </div>

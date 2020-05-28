@@ -30,9 +30,20 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-# db = SQL("sqlite:///finance.db")
+# db = SQL("sqlite:///learnPC.db")
 
 
 @app.route("/", methods=["GET"])
 def home():
+    views = db.execute("SELECT * FROM views")
+    views = views[0]['views']
+    views += 1
     return render_template("home.html")
+
+@app.route("/signup", methods=["GET", "POST"])
+def signUp():
+    if request.method == "GET":
+        views = db.execute("SELECT * FROM views")
+        views = views[0]['views']
+        views += 1
+        return render_template("login.html")

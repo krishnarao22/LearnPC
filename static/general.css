@@ -9,10 +9,21 @@ nav{
     color: aliceblue;
 }
 
+.container-fluid{
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .white{
     background-color: #fcfcfc;
 }
 
 .red{
     background-color: #ff5f5f;
+}
+
+.background-blue{
+    background-color: #f0f6f7;
 }
