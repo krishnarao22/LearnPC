@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block links %}
-    <link rel="stylesheet" type="text/css" href="../static/login.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+    <script src="../static/js/login.js"></script>
 {% endblock %}
 
 
@@ -43,7 +44,7 @@
                     <input type="password" class="form-control" id="pwConfirm" name="pwConfirm">
                 </div>
                 <div class="form-group mt-5">
-                    <input type="submit" class="btn btn-primary">
+                    <input type="submit" class="btn btn-primary" onclick="checkFields()">
                 </div>
             </form>
         </div>

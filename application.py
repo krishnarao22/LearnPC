@@ -32,22 +32,29 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///learnPC.db")
 
-
-@app.route("/", methods=["GET"])
-def home():
+def updateViews():
     views = db.execute("SELECT * FROM views")
     views = views[0]['Views']
     views += 1
     print(views)
     db.execute("UPDATE views set Views=:views", views=views)
+
+@app.route("/", methods=["GET"])
+def home():
+    updateViews()
     return render_template("home.html")
 
-@app.route("/sign_up", methods=["GET", "POST"])
-def signUp():
+@app.route("/sign_up", methods=["GET"])
+def renderSignUp():
+    updateViews()
     if request.method == "GET":
-        views = db.execute("SELECT * FROM views")
-        views = views[0]['Views']
-        views += 1
-        print(views)
-        db.execute("UPDATE views set Views=:views", views=views)
         return render_template("login.html")
+
+"""
+@app.route("/sign_up", methods=["POST"])
+def signUp():
+    email = request.form.get("email")
+    usernames = db.execute("SELECT username FROM users")
+    print(usernames)
+    return("ok")
+"""
