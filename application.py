@@ -44,17 +44,18 @@ def home():
     updateViews()
     return render_template("home.html")
 
-@app.route("/sign_up", methods=["GET"])
-def renderSignUp():
+@app.route("/sign_up", methods=["GET", "POST"])
+def signUp():
     updateViews()
     if request.method == "GET":
         return render_template("login.html")
-
-"""
-@app.route("/sign_up", methods=["POST"])
-def signUp():
-    email = request.form.get("email")
-    usernames = db.execute("SELECT username FROM users")
-    print(usernames)
-    return("ok")
-"""
+    else:
+        print("Post request made")
+        theForm = request.form
+        email = theForm.get("email")
+        username = theForm.get("username")
+        pwHash = theForm.get("password")
+        print(email)
+        print(username)
+        print(pwHash)
+        return render_template("login.html")
