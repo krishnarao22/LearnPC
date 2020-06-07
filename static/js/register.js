@@ -15,7 +15,6 @@ function validate() {
         return c >= '0' && c <= '9'
     }
 
-
     var letExists = false;
     var numExists = false;
 

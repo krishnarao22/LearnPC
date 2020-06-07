@@ -12,3 +12,7 @@ form{
 small{
     color: #fcfcfc;
 }
+
+.error{
+    color: #ff5c5c;
+}

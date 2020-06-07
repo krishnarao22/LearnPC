@@ -44,18 +44,29 @@ def home():
     updateViews()
     return render_template("home.html")
 
-@app.route("/sign_up", methods=["GET", "POST"])
+@app.route("/register", methods=["GET", "POST"])
 def signUp():
     updateViews()
     if request.method == "GET":
-        return render_template("login.html")
+        return render_template("register.html", usernameErr=None, emailErr=None)
     else:
         print("Post request made")
         theForm = request.form
         email = theForm.get("email")
         username = theForm.get("username")
-        pwHash = theForm.get("password")
+        pwHash = generate_password_hash(theForm.get("password"))
         print(email)
         print(username)
         print(pwHash)
-        return render_template("login.html")
+
+        if len(db.execute("SELECT * FROM users WHERE username = :username", username=username)) != 0:
+            return render_template("register.html", usenameErr="This username is already taken!", emailErr=None)
+        elif len(db.execute("SELECT * FROM users WHERE email = :email", email=email)) != 0:
+            return render_template("register.html", emailErr="This email has already been used!", usernameErr=None)
+
+        db.execute("INSERT INTO users (email, username, pw_hash) VALUES (:email, :username, :pw_hash)", email=email, username = username, pw_hash = pwHash)
+        return redirect("/")
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    updateViews()
