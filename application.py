@@ -70,3 +70,22 @@ def signUp():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     updateViews()
+
+    if request.method == "GET":
+        return render_template("login.html")
+
+    else:
+        print("POST REQUEST MADE")
+        username = request.form.get("email")
+        pw = request.form.get("password")
+        print(username)
+        print(pw)
+
+        check = db.execute("SELECT * FROM users WHERE username=:username", username = username)
+        
+        if len(check) != 1 or not check_password_hash(check[0]["pw_hash"], pw):
+            return render_template("login.html", invalid=True)
+        
+        session["user_id"] = check[0]["id"]
+        return redirect("/")
+
