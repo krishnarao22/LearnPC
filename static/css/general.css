@@ -17,6 +17,10 @@ nav{
     padding-right: 0px;
 }
 
+.mainBack{
+    background-image: linear-gradient(#cfe5ff, #b0d4ff)
+}
+
 .white{
     background-color: #fcfcfc;
 }

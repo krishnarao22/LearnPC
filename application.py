@@ -39,6 +39,8 @@ def updateViews():
     print(views)
     db.execute("UPDATE views set Views=:views", views=views)
 
+# ROUTES 
+
 @app.route("/", methods=["GET"])
 def home():
     updateViews()
@@ -78,8 +80,6 @@ def login():
         print("POST REQUEST MADE")
         username = request.form.get("email")
         pw = request.form.get("password")
-        print(username)
-        print(pw)
 
         check = db.execute("SELECT * FROM users WHERE username=:username", username = username)
         
@@ -87,5 +87,10 @@ def login():
             return render_template("login.html", invalid=True)
         
         session["user_id"] = check[0]["id"]
+        
         return redirect("/")
 
+@app.route('/home', methods=["GET", "POST"])
+def homeLoggedIn():
+    updateViews()
+    return render_template("homeLoggedIn.html")

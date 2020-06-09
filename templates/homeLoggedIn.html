@@ -1,18 +1,28 @@
 {% extends "layout.html" %}
 
-{% block main %}
+{% block title %}
 Home
 {% endblock %}
 
+{% block links %}
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+{% endblock %}
+
 {% block main %}
+<div class="container-fluid mainBack">
 
-    <div class="container-fluid">
-
-        <div class="container-fluid white">
-        
-        </div>
-
+    <div class="container-fluid d-flex justify-content-center pt-5 pb-2">
+        <h1>Welcome Back!</h1>
+    </div>
+    <div class="container-fluid d-flex justify-content-center pt-2 pb-5">
+        <h4>Let's keep learning.</h4>
+    </div>
+    <div class="container-fluid d-flex pt-3 pb-5">
+        <h3 class="pl-5 ml-4"><strong>Sections</strong></h3>
+    </div>
+    <div class="container-fluid d-flex justify-content-center pt-2 pb-5">
+        <h4>Fill this out later.</h4>
     </div>
 
-
+</div>
 {% endblock %}
