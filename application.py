@@ -32,12 +32,17 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///learnPC.db")
 
+
+# Important functions and vars
 def updateViews():
     views = db.execute("SELECT * FROM views")
     views = views[0]['Views']
     views += 1
     print(views)
     db.execute("UPDATE views set Views=:views", views=views)
+
+hardwareTopicsList = ["Introduction", "CPU", "RAM", "Storage", "GPU", "Motherboard", "Power Supply", "Monitor", "Other Peripherals"]
+hardwareLinks = ["/hardware_intro", "/cpu", "/ram", "/storage", "/gpu", "/mb", "/psu", "/monitor", "/periphs"]
 
 # ROUTES 
 
@@ -93,4 +98,4 @@ def login():
 @app.route('/home', methods=["GET", "POST"])
 def homeLoggedIn():
     updateViews()
-    return render_template("homeLoggedIn.html")
+    return render_template("homeLoggedIn.html", hardwareTopicsList = hardwareTopicsList, hardwareLinks = hardwareLinks)

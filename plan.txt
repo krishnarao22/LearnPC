@@ -1,0 +1,6 @@
+– Hardware side
+    - Parts of the computer
+    – Tutorial on how to assemble a computer?
+– Software side
+    – Intro to logic w/ Python?
+    – See if there's an in-browser code editor...
