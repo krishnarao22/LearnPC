@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700;800&display=swap');
 
+html{
+    background-image: linear-gradient(#cfe5ff, #b0d4ff)
+}
+
 body{
     font-family: 'Spartan', sans-serif;
     background-color: #fcfcfc;
@@ -43,4 +47,12 @@ nav{
 
 .navLink:hover{
     color:#83ffe6;
+}
+
+.topicHeader{
+    background-color:#fffee8;
+}
+
+.card{
+    border-radius: 50px
 }

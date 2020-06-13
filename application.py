@@ -99,3 +99,8 @@ def login():
 def homeLoggedIn():
     updateViews()
     return render_template("homeLoggedIn.html", hardwareTopicsList = hardwareTopicsList, hardwareLinks = hardwareLinks)
+
+@app.route('/hardware_intro', methods=["GET", "POST"])
+def hardwareIntro():
+    updateViews()
+    return render_template("hardware_intro.html")
