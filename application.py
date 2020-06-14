@@ -103,4 +103,11 @@ def homeLoggedIn():
 @app.route('/hardware_intro', methods=["GET", "POST"])
 def hardwareIntro():
     updateViews()
-    return render_template("hardware_intro.html")
+    if request.method == "GET":
+        return render_template("hardware_intro.html")
+
+@app.route('/cpu', methods=["GET", "POST"])
+def cpu():
+    updateViews()
+    if request.method == "GET":
+        return render_template("cpu.html")
