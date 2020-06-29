@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Hardware: {{ topic }}
+{% endblock %}
+
+{% block main %}
+
+<div class="container-fluid mainBack">
+    <div class="container-fluid topicHeader">
+        <div class="container-fluid d-flex justify-content-center pt-5 pb-2">
+            <h1>{{ title }}</h1>
+        </div>
+        <div class="container-fluid d-flex justify-content-center pt-2 pb-5">
+            <h4>{{ subtitle }}</h4>
+        </div>
+    </div>
+    <div class="container-fluid d-flex justify-content-center pt-5 mt-5 pb-5">
+        <p>{{ intro }}</p>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-center pt-2 pb-5">
+        <div class="card p-5 shadow-lg">
+            <div class="container-fluid d-flex justify-content-center">
+                <h5><strong>{{ summary }}</strong></h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-center pt-2 mt-5 pb-5">
+        <p>{{ point1 }}</p>
+    </div>
+    
+    <div class="container-fluid d-flex justify-content-center pt-2 mt-3 pb-5">
+        <p>{{ point2 }}</p>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-center mt-4 pb-5">
+        <a href="#"><button class="btn-lg shadow btn-primary">Go to quiz!</button></a>
+    </div>
+
+{% endblock %}

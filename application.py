@@ -44,6 +44,19 @@ def updateViews():
 hardwareTopicsList = ["Introduction", "CPU", "RAM", "Storage", "GPU", "Motherboard", "Power Supply", "Monitor", "Other Peripherals"]
 hardwareLinks = ["/hardware_intro", "/cpu", "/ram", "/storage", "/gpu", "/mb", "/psu", "/monitor", "/periphs"]
 
+def getInformation(topic):
+    data = db.execute("SELECT * FROM information WHERE topic=:topic", topic=topic)
+    information = []
+    information.append(data[0]['topic'])
+    information.append(data[0]['title'])
+    information.append(data[0]['subtitle'])
+    information.append(data[0]['intro'])
+    information.append(data[0]['summary'])
+    information.append(data[0]['point1'])
+    information.append(data[0]['point2'])
+    return information
+
+
 # ROUTES 
 
 @app.route("/", methods=["GET"])
@@ -104,10 +117,14 @@ def homeLoggedIn():
 def hardwareIntro():
     updateViews()
     if request.method == "GET":
-        return render_template("hardware_intro.html")
+        data = getInformation("Hardware Intro")
+        return render_template("information.html", topic=data[0], title=data[1], subtitle=data[2],
+        intro=data[3], summary=data[4], point1=data[5], point2=data[6])
 
 @app.route('/cpu', methods=["GET", "POST"])
 def cpu():
     updateViews()
     if request.method == "GET":
-        return render_template("cpu.html")
+        data = getInformation("CPU")
+        return render_template("information.html", topic=data[0], title=data[1], subtitle=data[2],
+        intro=data[3], summary=data[4], point1=data[5], point2=data[6])
